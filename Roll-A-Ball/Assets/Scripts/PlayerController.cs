@@ -53,16 +53,13 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * speed);
     }
 
-    private void OnTriggerEnter(Collider other)
+
+
+    void OnCollisionEnter (Collision targetObj)
     {
-        if (other.gameObject.CompareTag("PoolBalls"))
+        if(targetObj.gameObject.tag == "PoolBall")
         {
-            billiard2.Play(); //Play it
-            //other.gameObject.SetActive(false);
-
-            //count = count + 1;
-
-            //SetCountText();
+          billiard2.Play();
         }
     }
 
